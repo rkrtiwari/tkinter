@@ -34,6 +34,10 @@ label3 = Label(window, text = y, fg = 'green', bg = 'black', font = "Helvetica 1
 label3.place(x = x1, y = 50)
 label4 = Label(window, text = '=', fg = 'red', bg = 'black', font = "Helvetica 15")
 label4.place(x = 110, y = 50)
+text = '         '
+label5 = Label(window, text = text, fg = 'red', bg = 'black', font = "Helvetica 15")
+label5.place(x = 200, y = 50)
+
 
 
 def click(event):
@@ -41,8 +45,7 @@ def click(event):
         text = 'Yey      '
     else:
         text = 'Try Again'
-    label5 = Label(window, text = text, fg = 'red', bg = 'black', font = "Helvetica 15")
-    label5.place(x = 200, y = 50)
+    label5.config(text=text)
     
 
 data = IntVar()
@@ -84,13 +87,30 @@ for i in range(y):
 
 
 def press():
+    global x
+    global y
+    global z
     x = np.random.choice(range(1,10))
     y = np.random.choice(range(1,10))
+    z = x + y
     label1.config(text=x)
     label3.config(text=y)
+    
+    text = '          '
+    label5.config(text = text)
+    
+    canvas.delete('all')
+    for i in range(x):
+        canvas.create_oval(x0, y0 + i*ystep, x0 + r, y0 + i*ystep+ r, fill = 'red')
+        window.update()
+        
+    for i in range(y):
+        canvas.create_oval(x1, y0+ i*ystep, x1 + r, y0 +i*ystep+ r, fill = 'green')
+        window.update()
+        
 
 b1 = Button(window, text = "new sum?", command = press)
-b1.place(x=250, y=50)
+b1.place(x=300, y=50)
 
 
 window.mainloop()
