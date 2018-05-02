@@ -9,6 +9,14 @@ Created on Tue May  1 09:15:42 2018
 from Tkinter import *
 import numpy as np
 import os
+from PIL import Image, ImageTk
+
+thumbsup = Image.open("thumbsup.png")
+#thumbsup = thumbsup.resize(250, 250)
+thumbsdown = Image.open("thumbsdown.jpg")
+#thumbsdown = thumbsdown.resize(250, 250)
+
+
 xsize = 2000
 ysize = 1000
 
@@ -29,6 +37,10 @@ y = np.random.choice(range(1,10))
 z = x + y
 
 window = Tk()
+up_photo = ImageTk.PhotoImage(thumbsup)
+down_photo = ImageTk.PhotoImage(thumbsdown)
+
+
 canvas = Canvas(window, width = xsize, height = ysize)
 #canvas.place(x= 0, y = 0)
 canvas.pack()
@@ -47,8 +59,12 @@ label5.place(x = 550, y = 50)
 label6 = Label(window, text = correct, fg = 'red', bg = 'black', font = "Helvetica 60")
 label6.place(x = 1250, y = 50)
 
-label7 = Label(window, text = wrong, fg = 'red', bg = 'black', font = "Helvetica 60")
-label7.place(x = 1350, y = 50)
+label7 = Label(window, image = up_photo)
+label7.place(x = 1350, y = 200)
+
+label8 = Label(window, image = down_photo)
+label8.place(x = 1350, y = 500)
+
 
 
 
