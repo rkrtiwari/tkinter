@@ -46,11 +46,11 @@ def click(event):
     if data.get() == z:
         text = 'Yey    '
         label5.config(text=text)
-        os.system('mplayer correct.mp3')
+        os.system('mplayer -ss 2 -endpos 2 correct.mp3')
     else:
         text = 'Try Again'
         label5.config(text=text)
-        os.system('mplayer wrong.mp3')
+        os.system('mplayer -ss 2 -endpos 2 wrong.mp3')
 #    label5.config(text=text)
     
 
