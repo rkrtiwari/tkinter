@@ -19,6 +19,10 @@ r = 20
 xstep = 80
 ystep = 80
 
+correct = 0
+wrong = 0
+
+
 x = np.random.choice(range(1,10))
 y = np.random.choice(range(1,10))
 
@@ -40,17 +44,29 @@ text = '         '
 label5 = Label(window, text = text, fg = 'red', bg = 'black', font = "Helvetica 60")
 label5.place(x = 550, y = 50)
 
+label6 = Label(window, text = correct, fg = 'red', bg = 'black', font = "Helvetica 60")
+label6.place(x = 1250, y = 50)
+
+label7 = Label(window, text = wrong, fg = 'red', bg = 'black', font = "Helvetica 60")
+label7.place(x = 1350, y = 50)
+
 
 
 def click(event):
+    global correct
+    global wrong
     if data.get() == z:
         text = 'Yey    '
         label5.config(text=text)
         os.system('mplayer -ss 2 -endpos 2 correct.mp3')
+        correct +=1
+        label6.config(text = correct)
     else:
         text = 'Try Again'
         label5.config(text=text)
         os.system('mplayer -ss 2 -endpos 2 wrong.mp3')
+        wrong += 1
+        label7.config(text = wrong)
 #    label5.config(text=text)
     
 
@@ -74,9 +90,12 @@ def press():
     global x
     global y
     global z
+    global correct
+    global wrong
     x = np.random.choice(range(1,10))
     y = np.random.choice(range(1,10))
     z = x + y
+    total += 1
     label1.config(text=x)
     label3.config(text=y)
     
