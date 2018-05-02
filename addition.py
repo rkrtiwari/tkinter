@@ -8,6 +8,7 @@ Created on Tue May  1 09:15:42 2018
 
 from Tkinter import *
 import numpy as np
+import os
 size = 500
 
 x0 = 20
@@ -45,6 +46,7 @@ def click(event):
         text = 'Yey      '
     else:
         text = 'Try Again'
+        os.system('mplayer wrong.mp3')
     label5.config(text=text)
     
 
