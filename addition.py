@@ -57,13 +57,16 @@ label5 = Label(window, text = text, fg = 'red', bg = 'black', font = "Helvetica 
 label5.place(x = 550, y = 50)
 
 label6 = Label(window, text = correct, fg = 'red', bg = 'black', font = "Helvetica 60")
-label6.place(x = 1250, y = 50)
+label6.place(x = 1100, y = 300)
 
-label7 = Label(window, image = up_photo)
-label7.place(x = 1350, y = 200)
+label7 = Label(window, text = wrong, fg = 'red', bg = 'black', font = "Helvetica 60")
+label7.place(x = 1100, y = 450)
 
-label8 = Label(window, image = down_photo)
-label8.place(x = 1350, y = 500)
+label8 = Label(window, image = up_photo)
+label8.place(x = 900, y = 300)
+
+label9 = Label(window, image = down_photo)
+label9.place(x = 850, y = 450)
 
 
 
